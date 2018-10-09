@@ -1,0 +1,377 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  margin:0px;
+}
+.container-fluid {
+  width: 100%;
+  padding-right: 5px !important;
+  padding-left: 5px !important;
+}
+
+.header-content {
+  background-color: rgb(65, 65, 65);
+  width: 100%;
+  position: fixed; 
+  top: 0px;
+  z-index: 99998;
+}
+
+.header {
+  height: 50px;
+  margin: 0px auto;
+  width: 100%;
+}
+
+.fixSearchBar {
+  position: fixed !important;
+  z-index: 99996;
+  margin: -40px auto;
+  padding-right: 10px !important;
+  width: 100%;
+}
+
+.TableContent {
+  width: 100%;
+  margin: 290px auto !important
+}
+
+.mapMargins {
+  margin-left: -6px;
+  /* position: relative; */
+}
+
+.LetheanLogo {
+  position: fixed;
+  top: 0;
+  display: block;
+  margin-left: 5px;
+  margin-top: 10px;
+  height: auto; 
+  width: auto; 
+  max-width: 180px; 
+  max-height: 30px;
+  object-fit: cover;
+  z-index: 99999;
+}
+
+.footer-logo {
+  display: block;
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  outline: 0;
+  border: none;
+  width: 164px;
+  height: 25px;
+  background: url(./assets/img/letheanLogofull.png) no-repeat center;
+  background-size: 164px 25px;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.font-white {
+  color:  white;
+}
+.font-dark {
+  color: black;
+}
+.bgWhite {
+  background: white;
+}
+
+.tableHeader {
+  color: black;
+}
+
+.tableHeader a:link {
+  text-decoration: none;
+}
+
+.tableHeader a:visited {
+  text-decoration: none;
+}
+
+.tableHeader a:hover {
+  text-decoration: none;
+}
+
+.tableHeader a:active {
+  text-decoration: none;
+}
+
+/* Style Table for mobile phones */
+
+.table-responsive {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+@media screen and (max-width: 800px) {
+
+  .LetheanLogo {
+    position: absolute !important;
+  }
+
+
+  .table-responsive,
+  .table-responsive tbody,
+  .table-responsive tr,
+  .table-responsive td {
+    display: block;
+  }
+
+  .table-responsive thead {
+    position: absolute;
+    left: 9999px;
+    top: -9999px;
+  }
+
+  .table-responsive td {
+    border: none;
+    position: relative;
+    padding-top: 19px !important;
+    padding-left: 5%;
+    white-space: normal;
+    vertical-align: bottom !important;
+    text-align: left;
+    
+  }
+
+  .table-responsive td:before {
+    position: absolute;
+    font-style: italic;
+    top: 1px;
+    left: 5px;
+    width: 100%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    content: attr(data-title);
+  }
+
+  .table-responsive td:last-child {
+    border-bottom: 1px solid red;
+  }
+
+  .table-responsive tr {
+    border-bottom: 5px solid rgb(65, 65, 65);
+    border-radius: 4px;
+    background: white;
+  }  
+
+  .fixSearchBar {
+    /* position: fixed !important; */
+    z-index: 99996;
+    margin: -46px auto ;
+    padding: 5px;
+  }
+
+  .header-content {
+    background-color: rgb(65, 65, 65);
+    width: 100%;
+    /* position: fixed;  */
+    top: 0px;
+    z-index: 99999;
+  }
+
+  .TableContent {
+    width: 100%;
+    margin: 291px auto !important;
+
+  }
+
+  .mapMargins {
+    margin-left: -5px;
+  }
+
+  .footer-main .row {
+    margin-left: -28px;
+  }
+
+  .footer-main .left {
+      padding-right: 1px;
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+  .footer-main .right {
+    padding-left: 1px !important;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .contact-info {
+    margin: 0px;
+    text-align: center;
+  }
+
+  .h6 {
+    /* max-width: 100%;
+    font-weight: bold;
+    font-size: 0 rem;
+    text-align: center;
+    padding: 15px;
+    margin-top: 25px;
+    color: white;
+    margin-left: 0px !important; */
+    display: none;
+  }
+  .contact-social {
+    margin: -34px !important;
+    margin-left: -80px !important;
+  }
+  .footer {
+    font-size: 8px;
+    line-height: 2;
+    margin-top: -240px;
+    height: 180px;
+
+  }
+
+} 
+
+
+
+
+footer {
+  background: #111111;
+  /* padding: 9rem 0 6rem; */
+  padding: 20px;
+  font-family: "montserrat-light", sans-serif;
+  font-size: 10px;
+  line-height: 2;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.783);
+  margin-top: -240px;
+  height: 180px;
+  border-radius: 4px;
+}
+
+footer .row {
+  max-width: 100%;
+}
+.footer-main {
+  margin-left: 10px;
+  text-align: left;
+}
+.footer-main .left {
+  padding-right: 40px;
+}
+
+.footer-main .right {
+  padding-left: 40px;
+}
+
+.footer-bottom {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 10px;
+}
+.footer-bottom .copyright span {
+  display: inline-block;
+}
+.contact-secondary .contact-info {
+  position: relative;
+}
+.contact-content {
+  color: rgba(255, 255, 255, 0.4);
+  font-family: "montserrat-light", sans-serif;
+  font-size: 8px;
+  line-height: 2;
+  position: relative;
+}
+.contact-social {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  font-size: 18px;
+}
+.contact-social li a {
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.contact-social li  {
+  float: left;
+}
+.contact-social ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.contact-social li a:hover {
+  color:red;
+}
+
+.h6 {
+  font-size: 0.9rem;
+  margin-left: 45px !important;
+  color: white;
+  font-weight: bold;
+}
+
+a {
+  cursor: pointer;
+}
+
+.pagination {
+  margin-top: -12px;
+}
+
+.pagination li a {
+  border: none;
+  font-size: 10px;
+  border-radius: 12px;
+  color: black;
+  padding: 4px 10px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  margin: 4px 2px;
+}
+.pagination li.active a {
+  background-color: red;
+  color: white;
+}
+
+.pagination li:hover:not(.active) a {
+  background-color: #ddd;
+}
+.pagination select {
+  outline:0;
+  border: none;
+  border-bottom: 1px solid red;
+  height: 15px;
+  font-size: 10px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+}
+
+.pagination select:focus {
+  box-sizing: none;
+  outline:0;
+  border: none;
+  border-bottom: 1px solid red;
+}
+.pagination select option {
+  margin: 0px;
+  padding: 0px;
+  font-size: 10px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none !important;
+}

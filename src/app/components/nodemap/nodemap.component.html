@@ -1,0 +1,22 @@
+<script>
+  document.addEventListener('touchstart', onTouchStart, {passive: true});
+</script>
+<agm-map #gm [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="true" 
+  [backgroundColor]="backgroundColor" [mapTypeId]="mapTypeId" [styles]="styles" [disableDefaultUI]="disableDefaultUI" (mapReady)="mapReady($event)">
+
+  <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="setMapCenter(m)" [latitude]="m.lat" [longitude]="m.lng">
+
+    <agm-info-window [isOpen]="isInfoWindowOpen(m.label)" [latitude]="m.lat" [longitude]="m.lng">
+      <div>
+        <strong>{{m.label}}</strong>
+      </div>
+      <div>
+        <span [ngClass]="['flag-icon', m.country_code | countryFlag ]" style="font-size:10px;"> </span>
+        {{m.city}}, {{m.country_name}}
+      </div>
+      
+    </agm-info-window>
+
+  </agm-marker>
+
+</agm-map>

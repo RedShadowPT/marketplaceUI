@@ -1,0 +1,54 @@
+<div class="text-white mt-2">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4 ml-auto">
+      <h5>Providers Marketplace Admin</h5>
+    </div>
+  </div>
+  <div class="row mt-3 btop">
+    <div class="col-1" style="width:100%;">
+      <div class="mt-2 ml-3 text-center">
+        <div class="w-100">
+          <div class="btn-group-vertical" role="group" aria-label="Admin Routes">
+            <button type="button" class="btn btn-secondary btn-block" routerLink="./settings" routerLinkActive="active">Settings</button>
+            <button type="button" class="btn btn-secondary btn-block" routerLink="./users" routerLinkActive="active">Users</button>
+            <button type="button" class="btn btn-secondary btn-block" routerLink="./logs" routerLinkActive="active">Logs</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-11 mt-1">
+      <router-outlet #adminRouterOutlet="outlet"></router-outlet>
+    </div>
+    <div class="d-flex flex-column justify-content-between fixedBottom">
+      <div class="w-100 mt-4 d-flex p-3 bd-highlight">
+        <div class="btop bbottom text-center">
+          <br>
+          <div class="w-100">
+            <small>
+              <div class="w-100">
+                <strong>
+                  {{ authUser.displayName }}
+                </strong>
+              </div>
+              <div class="w-100 mb-2">
+                {{ authUser.email}}
+              </div>
+            </small>
+            <div class="w-100 mt-3 btop">
+              <div class="mt-2 text-center">
+                <div class="btn-group-vertical" role="group" aria-label="Default Routes">
+                  <button type="button" class="btn btn-outline-info btn-sm btn-block" routerLink="/">Home</button>
+                  <button type="button" class="btn btn-outline-info btn-sm btn-block" (click)="onLogout()">Logout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

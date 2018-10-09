@@ -1,0 +1,30 @@
+.box-content {
+  display: inline-block;
+  width: 200px;
+  padding: 10px;
+}
+
+.bbottom {
+  border-bottom: 1px solid #ccc;
+}
+
+.bright {
+  border-right: 1px solid #ccc;
+}
+
+.bleft {
+  border-left: 1px solid #ccc;
+}
+
+.btop {
+  border-top: 1px solid #ccc;
+}
+
+.boxed {
+  border: 1px solid #ccc;
+}
+
+.fixedBottom {
+  position:absolute;
+  bottom:0;
+}

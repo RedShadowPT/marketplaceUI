@@ -1,0 +1,18 @@
+<div style="background-color: rgb(65, 65, 65); padding-bottom:3px;">
+  <div class="header-content">
+    <div class="header">
+      <div class="mapMargins">
+        <app-nodemap [selectedmapmarker]="activeNode"></app-nodemap>
+        <!-- <img alt="LETHEAN" data-type="image" src="/assets/img/letheanLogofull.png" class="LetheanLogo"> -->
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <app-nodelist (selectedmarker)="setActiveNode($event)"></app-nodelist>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

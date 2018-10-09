@@ -1,0 +1,138 @@
+<div #paneFocus>
+  <div>
+    <div class="mb-1 fixSearchBar">
+      <form style="background:white; border-radius: 4ch;">
+        <div class="input-group">
+          
+          <div class="input-group-btn">
+            <button class="btn btn-default">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <input #searchStringFocus type="text" class="form-control" name="searchString" placeholder="Type to search..." [(ngModel)]="searchString">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="TableContent">
+    <div>
+      <!-- Data Table -->
+      <div class="table-responsive">
+          <table class="table table-light table-hover table-striped table-sortable table-fixed" style="border-radius: 4px;">
+            <thead>
+              <th scope="row">
+                <a class="tableHeader" href="#" (click)="sortTable('rating', (SortDirection = !SortDirection), $event)">
+                  Rating
+                  <div style="display:inline; font-size:10px;" *ngIf="currentSort === 'rating'">
+                    <i [ngClass]="SortDirection ? 'fas fa-sort-up' : 'fas fa-sort-down'"></i>
+                  </div>
+                </a>
+              </th>
+              <th scope="col">
+                <a class="tableHeader" href="#" (click)="sortTable('providerName', (SortDirection = !SortDirection), $event)">
+                  Provider
+                  <div style="display:inline; font-size:10px;" *ngIf="currentSort === 'providerName'">
+                    <i [ngClass]="SortDirection ? 'fas fa-sort-up' : 'fas fa-sort-down'"></i>
+                  </div>
+                </a>
+              </th>
+              <th scope="col">
+                <a class="tableHeader" href="#" (click)="sortTable('continent_code', (SortDirection = !SortDirection), $event)">
+                  Location
+                  <div style="display:inline; font-size:10px;" *ngIf="currentSort === 'continent_code'">
+                    <i [ngClass]="SortDirection ? 'fas fa-sort-up' : 'fas fa-sort-down'"></i>
+                  </div>
+                </a>
+              </th>
+              <th scope="col">
+                <a class="tableHeader" href="#" (click)="sortTable('downloadSpeed', (SortDirection = !SortDirection), $event);">
+                  Speed
+                  <small style="font-size:10px;">(Down/Up)MB/s</small>
+                  <div style="display:inline; font-size:10px;" *ngIf="currentSort === 'downloadSpeed'">
+                    <i [ngClass]="SortDirection ? 'fas fa-sort-up' : 'fas fa-sort-down'"></i>
+                  </div>
+                </a>
+              </th>
+              <th scope="col">
+                <a class="tableHeader" href="#" (click)="sortTable('cost', (SortDirection = !SortDirection), $event);">
+                  Price
+                  <div style="display:inline; font-size:10px;" *ngIf="currentSort === 'cost'">
+                    <i [ngClass]="SortDirection ? 'fas fa-sort-up' : 'fas fa-sort-down'"></i>
+                  </div>
+                </a>
+              </th>
+              <th scope="col">
+                <a class="tableHeader" href="#" (click)="sortTable('firstPrePaidMinutes', (SortDirection = !SortDirection), $event);">
+                  Pre Paid
+                  <small style="font-size:10px;">(min.)</small>
+                  <div style="display:inline; font-size:10px;" *ngIf="currentSort === 'firstPrePaidMinutes'">
+                    <i [ngClass]="SortDirection ? 'fas fa-sort-up' : 'fas fa-sort-down'"></i>
+                  </div>
+                </a>
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let node of pagedFilteredNodes ; index as i" (click)="selectMarker(node);">
+                <td data-title="Rating">
+                  <small>{{(node.mSpeed+node.mStability)/2}} of 5</small>
+                </td>
+                <td data-title="Provider">
+                  <div>
+                    <strong>{{node.providerName}}</strong>
+                    <p>
+                      <small>{{node.name}}</small>
+                    </p>
+                  </div>
+                </td>
+                <td data-title="Location">
+                  <div *ngFor="let proxy of node.proxy; index as i">
+                    <div>
+                      <span [ngClass]="['flag-icon', proxy.country_code | countryFlag ]" style="font-size:10px;"> </span>
+                      <small> {{proxy.city}}, {{proxy.country_name}} ({{proxy.continent_code}})</small>
+                    </div>
+                    {{proxy.endpoint}}:{{proxy.port}} ({{node.type}})
+                  </div>
+                </td>
+                <td data-title="Speed">{{ node.downloadSpeed | speed }} / {{node.uploadSpeed | speed }}</td>
+                <td data-title="Price">{{node.cost}} LTHN/min</td>
+                <td data-title="Pre Paid">{{node.firstPrePaidMinutes}} min</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <!-- pager -->
+      <nav aria-label="Page navigation" style="background:white; border-radius: 4px;">
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination justify-content-center">
+            <li class="page-item">
+               <p><small style="font-size:10px; text-align:left;">Viewing {{ pagedFilteredNodes.length }} of {{ nodes.length }} Providers </small></p> 
+              </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+            <a (click)="setPage(1)">First</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+          </li>
+          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item">
+            <a (click)="setPage(page)">{{page}}</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+            <a (click)="setPage(pager.totalPages)">Last</a>
+          </li>
+          <li class="page-item">
+            <select class="form-control" [(ngModel)]="itemsPerPage">
+              <option value="5">5</option>
+              <option *ngIf="pager.totalItems > 5" value="10">10</option>
+              <option *ngIf="pager.totalItems > 10" value="20">20</option>
+              <option *ngIf="pager.totalItems > 20" value="50">50</option>
+              <option *ngIf="pager.totalItems > 50" value="100">100</option>
+            </select>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+  </div>
+</div>

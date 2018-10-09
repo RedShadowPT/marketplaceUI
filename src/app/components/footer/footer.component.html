@@ -1,0 +1,91 @@
+<!-- FOOTER -->
+<div style="width: 100%;">
+  <footer>
+    <section id="footer">
+      <div class="row footer-main">
+        <div class="col-6 tab-full left footer-desc">
+          <div class="footer-logo"></div>
+          The Safest Way to Be Online .P2P VPN .Browse with Privacy .Unlock Any Content .Flexible to your Needs .Sharing Economy .Market
+          Place .BlockChain Technology .100% Private Payment with Cryptonight Protocol.
+          <p>
+            <br>
+            <strong>Providers Marketplace is still under development!</strong>
+          <br>
+            version: 1.1b
+            <br> 
+            Last update: 2018-Oct-02
+          </p>
+        </div>
+        <div class="col-6 tab-full right footer-desc">
+          <div class="contact-info">
+            <h3 class="h6">Stay Connected</h3>
+            <ul class="contact-social">
+              <li>
+                <a href="https://www.facebook.com/LetheanMovement" target="_blank">
+                  <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/LetheanMovement" target="_blank">
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://discordapp.com/invite/6ARhyAc" target="_blank">
+                  <i class="fab fa-dashcube" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/letheanVPN" target="_blank">
+                  <i class="fab fa-telegram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.reddit.com/r/Lethean" target="_blank">
+                  <i class="fab fa-reddit" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://bitcointalk.org/index.php?topic=4902692.80" target="_blank">
+                  <i class="fab fa-bitcoin" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCKa_Nw7JysDxgcBJYnraUVA" target="_blank">
+                  <i class="fab fa-youtube" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/lethean/" target="_blank">
+                  <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/LetheanMovement" target="_blank">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+            <!-- end contact-social -->
+          </div>
+        </div>
+      </div>
+      <!-- end footer-main -->
+      <div class="row footer-bottom">
+        <div class="col-12">
+          <div class="copyright">
+            <span>© Copyright Lethean 2018 </span>
+            <span>
+              &nbsp;
+              <a *ngIf="!userIsAuthenticated" routerLink="/login" class="text-white">Login</a>&nbsp;
+              <a *ngIf="userIsAuthenticated" (click)="onLogout()" class="text-white">Logout</a>&nbsp;
+              <a *ngIf="isAdmin" routerLink="/admin" class="text-white">Admin</a>
+              &nbsp;
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- end footer-bottom -->
+    </section>
+  </footer>
+</div>

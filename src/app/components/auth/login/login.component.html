@@ -1,0 +1,45 @@
+<div class="loginPage">
+  <div class="card">
+    <h5 class="card-header">
+      <i class="fas fa-user-lock"></i> Restricted Access Area
+    </h5>
+    <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+      <div class="card-body">
+        <h5 class="card-title">Login with Your Account </h5>
+        <div class="card-text">
+          <div class="form-group">
+            <label for="email">E-Mail
+              <sup>*</sup>
+            </label>
+            <input type="email" tabindex="1" name="loginEmail" ngModel placeholder="Type a valid email address" class="form-control"
+              required email #email="ngModel" autocomplete="on">
+            <div *ngIf="email.touched" class="invalidFormWarning">
+              <div *ngIf="email.errors?.required">
+                E-Mail is a required field!
+              </div>
+              <div *ngIf="email.errors?.email">
+                Please type a valid E-Mail address!
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password
+              <sup>*</sup>
+            </label>
+            <input type="password" name="loginPassword" ngModel placeholder="Type a valid password" class="form-control" required
+              minlength="3" #password="ngModel" autocomplete="on">
+            <div *ngIf="password.touched" class="invalidFormWarning">
+              <div *ngIf="password.errors?.required">
+                Password is a required field!
+              </div>
+              <div *ngIf="password.errors?.minlength">
+                Please type a valid Password!
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" name="authenticate" class="btn btn-sm btn-danger mt-2" [disabled]="loginForm.invalid">Authenticate</button>
+      </div>
+    </form>
+  </div>
+</div>

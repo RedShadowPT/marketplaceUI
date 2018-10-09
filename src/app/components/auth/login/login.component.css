@@ -1,0 +1,12 @@
+.loginPage {
+  margin: 80px auto !important;
+  width: 35%;
+}
+.form-group {
+  flex-wrap: wrap!important;
+}
+
+.invalidFormWarning {
+  color: red;
+  font-size: small;
+}
